@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CULTEST EVOL — Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">CULTEST EVOL</a>
+      <nav class="nav">
+        <button class="nav-btn active" data-cat="all">All</button>
+        <button class="nav-btn" data-cat="jewelry">Jewelry</button>
+        <button class="nav-btn" data-cat="jeans">Jeans</button>
+        <button class="nav-btn" data-cat="hoodies">Hoodies</button>
+        <button class="nav-btn" data-cat="shirts">Shirts</button>
+        <button class="nav-btn" data-cat="shoes">Shoes</button>
+      </nav>
+      <a class="order-btn" href="https://instagram.com/cultestevol" target="_blank">Order via Instagram</a>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-sub">Archive Collection</p>
+      <h1 class="hero-title">Where you can buy<br>fashion affordably.</h1>
+      <a class="hero-cta" href="https://instagram.com/cultestevol" target="_blank">DM to Order →</a>
+    </div>
+  </section>
+
+  <!-- ── Products ── -->
+  <main class="main">
+    <div class="products-header">
+      <h2 class="products-title" id="section-title">All Products</h2>
+      <span class="products-count" id="products-count">16 items</span>
+    </div>
+
+    <div class="grid" id="product-grid"></div>
+  </main>
+
+  <!-- ── Lightbox ── -->
+  <div class="lightbox hidden" id="lightbox">
+    <div class="lb-backdrop" id="lb-backdrop"></div>
+    <div class="lb-card">
+      <button class="lb-close" id="lb-close">✕</button>
+      <div class="lb-img-wrap">
+        <img class="lb-img" id="lb-img" src="" alt="">
+      </div>
+      <div class="lb-info">
+        <p class="lb-id" id="lb-id"></p>
+        <h3 class="lb-name" id="lb-name"></h3>
+        <p class="lb-price" id="lb-price"></p>
+        <a class="lb-order" href="https://instagram.com/cultestevol" target="_blank">Order on Instagram →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">CULTEST EVOL</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-text">Order via Instagram</span>
+      <span class="footer-sep">·</span>
+      <a href="https://instagram.com/cultestevol" target="_blank" class="footer-ig">@cultestevol</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
