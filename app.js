@@ -60,8 +60,8 @@ function renderGrid(cat) {
     return;
   }
 
-  grid.innerHTML = filtered.map(p => `
-    <div class="product-card" data-id="${p.id}">
+  grid.innerHTML = filtered.map((p, i) => `
+    <div class="product-card${i % 5 === 0 ? ' card-featured' : ''}" data-id="${p.id}">
       <div class="card-img-wrap">
         <img class="card-img" src="${p.img}" alt="${p.name}" loading="lazy">
       </div>
