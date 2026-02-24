@@ -29,109 +29,68 @@ function fmt(price) {
   return '฿' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-// ── Chain X + Lock SVG for coming-soon ───────────────────────────────────────
-function chainSVG() {
-  const W = 620, H = 400;
-  const CX = W / 2, CY = H / 2;
-  const SKIP = 68;
-
-  const defs = `<defs>
-    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="${H}" gradientUnits="userSpaceOnUse">
+// ── Coming-soon chain X ───────────────────────────────────────────────────────
+const LOCK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 132" class="chain-lock-svg">
+  <defs>
+    <radialGradient id="lb" cx="28%" cy="20%" r="75%">
       <stop offset="0%"   stop-color="#f2f2f2"/>
-      <stop offset="8%"   stop-color="#ffffff"/>
-      <stop offset="22%"  stop-color="#c8c8c8"/>
-      <stop offset="40%"  stop-color="#3a3a3a"/>
-      <stop offset="52%"  stop-color="#1e1e1e"/>
-      <stop offset="66%"  stop-color="#4a4a4a"/>
-      <stop offset="80%"  stop-color="#d0d0d0"/>
+      <stop offset="20%"  stop-color="#d5d5d5"/>
+      <stop offset="55%"  stop-color="#7a7a7a"/>
+      <stop offset="85%"  stop-color="#222"/>
+      <stop offset="100%" stop-color="#0e0e0e"/>
+    </radialGradient>
+    <linearGradient id="sg" x1="0" y1="0" x2="0" y2="132" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#f0f0f0"/>
+      <stop offset="10%"  stop-color="#ffffff"/>
+      <stop offset="28%"  stop-color="#bcbcbc"/>
+      <stop offset="48%"  stop-color="#252525"/>
+      <stop offset="66%"  stop-color="#585858"/>
+      <stop offset="84%"  stop-color="#d2d2d2"/>
       <stop offset="100%" stop-color="#e8e8e8"/>
     </linearGradient>
-    <radialGradient id="lb" cx="28%" cy="20%" r="75%">
-      <stop offset="0%"   stop-color="#f0f0f0"/>
-      <stop offset="18%"  stop-color="#d8d8d8"/>
-      <stop offset="50%"  stop-color="#7a7a7a"/>
-      <stop offset="82%"  stop-color="#242424"/>
-      <stop offset="100%" stop-color="#101010"/>
-    </radialGradient>
-    <filter id="ds" x="-50%" y="-50%" width="200%" height="200%">
-      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.95"/>
+    <filter id="ds" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#000" flood-opacity="1"/>
     </filter>
-    <filter id="ls" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="1" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.6"/>
-    </filter>
-  </defs>`;
-
-  function link(x, y, angle) {
-    const rx = 16, ry = 7;
-    const r = `rotate(${angle.toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)})`;
-    const xf = x.toFixed(1), yf = y.toFixed(1), yh = (y - 1.2).toFixed(1), yg = (y - 2.2).toFixed(1);
-    return [
-      `<ellipse cx="${xf}" cy="${yf}" rx="${rx + 2}" ry="${ry + 2}" transform="${r}" fill="none" stroke="#000" stroke-width="11" opacity="0.55" filter="url(#ls)"/>`,
-      `<ellipse cx="${xf}" cy="${yf}" rx="${rx}" ry="${ry}" transform="${r}" fill="none" stroke="#0a0a0a" stroke-width="9.5"/>`,
-      `<ellipse cx="${xf}" cy="${yf}" rx="${rx}" ry="${ry}" transform="${r}" fill="none" stroke="#1a1a1a" stroke-width="7.5"/>`,
-      `<ellipse cx="${xf}" cy="${yf}" rx="${rx}" ry="${ry}" transform="${r}" fill="none" stroke="url(#steel)" stroke-width="6"/>`,
-      `<ellipse cx="${xf}" cy="${yf}" rx="${rx - 1.5}" ry="${ry - 1.5}" transform="${r}" fill="none" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>`,
-      `<ellipse cx="${xf}" cy="${yh}" rx="${rx - 2.5}" ry="${ry - 2.5}" transform="${r}" fill="none" stroke="rgba(255,255,255,0.36)" stroke-width="1.8"/>`,
-      `<ellipse cx="${xf}" cy="${yg}" rx="${(rx * 0.52).toFixed(1)}" ry="${(ry * 0.42).toFixed(1)}" transform="${r}" fill="none" stroke="rgba(255,255,255,0.52)" stroke-width="1"/>`,
-    ].join('');
-  }
-
-  function chain(x1, y1, x2, y2) {
-    const dx = x2 - x1, dy = y2 - y1;
-    const len = Math.sqrt(dx * dx + dy * dy);
-    const ang = Math.atan2(dy, dx) * 180 / Math.PI;
-    const step = 28;
-    const n = Math.ceil(len / step);
-    let s = '';
-    for (let i = 0; i <= n; i++) {
-      const t = i / n;
-      const lx = x1 + dx * t, ly = y1 + dy * t;
-      if (Math.sqrt((lx - CX) ** 2 + (ly - CY) ** 2) < SKIP) continue;
-      s += link(lx, ly, i % 2 === 0 ? ang : ang + 90);
-    }
-    return s;
-  }
-
-  // Shackle: legs go up then arc over the top (sweep=1 = clockwise = curves up)
-  const sh  = `M${CX - 23} ${CY + 2} V${CY - 28} A23 23 0 0 1 ${CX + 23} ${CY - 28} V${CY + 2}`;
-  const shi = `M${CX - 21} ${CY + 2} V${CY - 27} A21 21 0 0 1 ${CX + 21} ${CY - 27} V${CY + 2}`;
-
-  const lockSVG = `
-    <g filter="url(#ds)">
-      <path d="${sh}" fill="none" stroke="#000" stroke-width="18" stroke-linecap="round"/>
-      <rect x="${CX - 39}" y="${CY - 2}" width="78" height="62" rx="10" fill="#000"/>
-    </g>
-    <path d="${sh}" fill="none" stroke="#0a0a0a" stroke-width="15" stroke-linecap="round"/>
-    <path d="${sh}" fill="none" stroke="url(#steel)" stroke-width="11" stroke-linecap="round"/>
-    <path d="${shi}" fill="none" stroke="rgba(0,0,0,0.4)" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="${shi}" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-linecap="round"/>
-    <rect x="${CX - 39}" y="${CY - 2}" width="78" height="62" rx="10" fill="url(#lb)"/>
-    <rect x="${CX - 39}" y="${CY - 2}" width="78" height="62" rx="10" fill="none" stroke="#333" stroke-width="1.5"/>
-    <rect x="${CX - 28}" y="${CY + 8}" width="24" height="5" rx="2.5" fill="rgba(255,255,255,0.28)"/>
-    <rect x="${CX - 28}" y="${CY + 9}" width="24" height="2" rx="1" fill="rgba(255,255,255,0.10)"/>
-    <circle cx="${CX}" cy="${CY + 26}" r="10.5" fill="#080808"/>
-    <circle cx="${CX}" cy="${CY + 26}" r="10.5" fill="none" stroke="#222" stroke-width="1.5"/>
-    <rect x="${CX - 4.5}" y="${CY + 33}" width="9" height="16" rx="4.5" fill="#080808"/>`;
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" class="coming-chains" aria-hidden="true">
-  ${defs}
-  ${chain(15, 15, W - 15, H - 15)}
-  ${chain(W - 15, 15, 15, H - 15)}
-  ${lockSVG}
+  </defs>
+  <!-- shadow layer -->
+  <g filter="url(#ds)">
+    <path d="M37 63 V38 A23 23 0 0 0 83 38 V63" fill="none" stroke="#000" stroke-width="18" stroke-linecap="round"/>
+    <rect x="16" y="61" width="88" height="65" rx="11" fill="#000"/>
+  </g>
+  <!-- shackle -->
+  <path d="M37 63 V38 A23 23 0 0 0 83 38 V63" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <path d="M37 63 V38 A23 23 0 0 0 83 38 V63" fill="none" stroke="url(#sg)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M39 63 V39 A21 21 0 0 0 81 39 V63" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-linecap="round"/>
+  <!-- body -->
+  <rect x="16" y="61" width="88" height="65" rx="11" fill="url(#lb)"/>
+  <rect x="16" y="61" width="88" height="65" rx="11" fill="none" stroke="#2e2e2e" stroke-width="1.5"/>
+  <!-- body highlight streak -->
+  <rect x="26" y="72" width="28" height="5" rx="2.5" fill="rgba(255,255,255,0.28)"/>
+  <rect x="26" y="73" width="28" height="2" rx="1" fill="rgba(255,255,255,0.10)"/>
+  <!-- keyhole -->
+  <circle cx="60" cy="90" r="11" fill="#080808"/>
+  <circle cx="60" cy="90" r="11" fill="none" stroke="#1c1c1c" stroke-width="1.5"/>
+  <rect x="55" y="98" width="10" height="18" rx="5" fill="#080808"/>
 </svg>`;
+
+function comingSoonHTML() {
+  return `<div class="chain-x">
+    <div class="chain-arm chain-arm-1"><img src="images/chain.jpg" class="chain-img" alt=""></div>
+    <div class="chain-arm chain-arm-2"><img src="images/chain.jpg" class="chain-img" alt=""></div>
+    <div class="chain-lock-wrap">${LOCK_SVG}</div>
+  </div>`;
 }
 
 // ── Render grid ──────────────────────────────────────────────────────────────
 function renderGrid(cat) {
   activeCategory = cat;
-  const grid      = document.getElementById('product-grid');
-  const title     = document.getElementById('section-title');
-  const countEl   = document.getElementById('products-count');
+  const grid    = document.getElementById('product-grid');
+  const title   = document.getElementById('section-title');
+  const countEl = document.getElementById('products-count');
 
-  const filtered  = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === cat);
+  const filtered     = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === cat);
   const isComingSoon = COMING_SOON.includes(cat);
 
-  // Title
   const labels = { all: 'All Products', jewelry: 'Jewelry', jeans: 'Jeans', hoodies: 'Hoodies', shirts: 'Shirts', shoes: 'Shoes' };
   title.textContent = labels[cat] || 'All Products';
 
@@ -139,7 +98,7 @@ function renderGrid(cat) {
     countEl.textContent = 'Coming soon';
     grid.innerHTML = `
       <div class="empty-state coming-state">
-        ${chainSVG()}
+        ${comingSoonHTML()}
         <h3>COMING SOON</h3>
         <p class="coming-text">Follow <a href="https://instagram.com/cultestevol" target="_blank" style="color:#fff;text-decoration:underline">@cultestevol</a> for updates.</p>
       </div>`;
@@ -182,11 +141,11 @@ function openLightbox(id) {
   if (!p) return;
   lightboxProduct = p;
 
-  document.getElementById('lb-img').src    = p.img;
-  document.getElementById('lb-img').alt    = p.name;
-  document.getElementById('lb-id').textContent    = p.id;
-  document.getElementById('lb-name').textContent  = p.name;
-  document.getElementById('lb-price').textContent = fmt(p.price);
+  document.getElementById('lb-img').src              = p.img;
+  document.getElementById('lb-img').alt              = p.name;
+  document.getElementById('lb-id').textContent       = p.id;
+  document.getElementById('lb-name').textContent     = p.name;
+  document.getElementById('lb-price').textContent    = fmt(p.price);
   document.getElementById('lightbox').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
 }
