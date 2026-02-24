@@ -2,22 +2,22 @@
 
 const PRODUCTS = [
   // ── Jewelry ──────────────────────────────────────────────────────────────
-  { id: 'J17', name: 'Steel Chain',                      price: 396.10, category: 'jewelry', img: 'images/j17.png' },
-  { id: 'J1',  name: 'Chrome Hearts Clip-On Earrings',   price: 246.26, category: 'jewelry', img: 'images/j1.png'  },
-  { id: 'J3',  name: 'Chrome Hearts Wallet Chain',        price: 253.00, category: 'jewelry', img: 'images/j3.png'  },
-  { id: 'J6',  name: 'Chrome Hearts Ring',                price: 361.90, category: 'jewelry', img: 'images/j6.png'  },
-  { id: 'J7',  name: 'Chrome Hearts Chain',               price: 545.50, category: 'jewelry', img: 'images/j7.png'  },
-  { id: 'J8',  name: 'Silver Wrist Chain',                price: 286.17, category: 'jewelry', img: 'images/j8.png'  },
-  { id: 'J12', name: 'Chrome Hearts Wrist Beads',         price: 353.80, category: 'jewelry', img: 'images/j12.png' },
-  { id: 'J15', name: 'Black Chrome Hearts Glasses',       price: 660.70, category: 'jewelry', img: 'images/j15.png' },
-  { id: 'J14', name: 'Half Frame Chrome Hearts Glasses',  price: 640.00, category: 'jewelry', img: 'images/j14.png' },
-  { id: 'J16', name: 'Layered Chrome Hearts Wallet Chain',price: 316.00, category: 'jewelry', img: 'images/j16.png' },
-  { id: 'J19', name: 'Chrome Hearts Pendant',             price: 220.60, category: 'jewelry', img: 'images/j19.png' },
-  { id: 'J21', name: 'Classic Chrome Hearts Pendant',     price: 247.60, category: 'jewelry', img: 'images/j21.png' },
-  { id: 'J26', name: 'Maison Margiela Ring',              price: 278.20, category: 'jewelry', img: 'images/j26.jpg' },
-  { id: 'J27', name: 'Maison Margiela Belt',              price: 647.20, category: 'jewelry', img: 'images/j27.png' },
-  { id: 'J29', name: 'Red Metallic Watch',                price: 807.40, category: 'jewelry', img: 'images/j29.png' },
-  { id: 'J30', name: 'Blue Metallic Watch',               price: 854.92, category: 'jewelry', img: 'images/j30.png' },
+  { id: 'J17', name: 'Steel Chain',                      price: 396.10, category: 'jewelry', img: 'images/j17.png', soldOut: false, desc: 'Heavy-gauge stainless steel link chain. Polished finish, adjustable length.' },
+  { id: 'J1',  name: 'Chrome Hearts Clip-On Earrings',   price: 246.26, category: 'jewelry', img: 'images/j1.png',  soldOut: false, desc: 'Authentic sterling silver clip-on earrings. Signature Chrome Hearts cross motif.' },
+  { id: 'J3',  name: 'Chrome Hearts Wallet Chain',        price: 253.00, category: 'jewelry', img: 'images/j3.png',  soldOut: false, desc: 'Sterling silver wallet chain with Chrome Hearts hardware and lobster clasp.' },
+  { id: 'J6',  name: 'Chrome Hearts Ring',                price: 361.90, category: 'jewelry', img: 'images/j6.png',  soldOut: false, desc: 'Sterling silver band with Chrome Hearts engraving. Available in select sizes.' },
+  { id: 'J7',  name: 'Chrome Hearts Chain',               price: 545.50, category: 'jewelry', img: 'images/j7.png',  soldOut: false, desc: 'Heavy sterling silver link necklace. Signature Chrome Hearts design.' },
+  { id: 'J8',  name: 'Silver Wrist Chain',                price: 286.17, category: 'jewelry', img: 'images/j8.png',  soldOut: false, desc: 'Layered sterling silver wrist chain. Adjustable fit.' },
+  { id: 'J12', name: 'Chrome Hearts Wrist Beads',         price: 353.80, category: 'jewelry', img: 'images/j12.png', soldOut: false, desc: 'Beaded bracelet with sterling silver Chrome Hearts accents.' },
+  { id: 'J15', name: 'Black Chrome Hearts Glasses',       price: 660.70, category: 'jewelry', img: 'images/j15.png', soldOut: false, desc: 'Black acetate frames with chrome hardware. Full UV protection.' },
+  { id: 'J14', name: 'Half Frame Chrome Hearts Glasses',  price: 640.00, category: 'jewelry', img: 'images/j14.png', soldOut: false, desc: 'Half-frame design with lightweight chrome detailing. Minimal and sharp.' },
+  { id: 'J16', name: 'Layered Chrome Hearts Wallet Chain',price: 316.00, category: 'jewelry', img: 'images/j16.png', soldOut: false, desc: 'Double-layer wallet chain with Chrome Hearts charms throughout.' },
+  { id: 'J19', name: 'Chrome Hearts Pendant',             price: 220.60, category: 'jewelry', img: 'images/j19.png', soldOut: false, desc: 'Sterling silver cross pendant with Chrome Hearts engraving. Chain not included.' },
+  { id: 'J21', name: 'Classic Chrome Hearts Pendant',     price: 247.60, category: 'jewelry', img: 'images/j21.png', soldOut: false, desc: 'Classic logo pendant in sterling silver. Signature Chrome Hearts aesthetic.' },
+  { id: 'J26', name: 'Maison Margiela Ring',              price: 278.20, category: 'jewelry', img: 'images/j26.jpg', soldOut: false, desc: 'Sterling silver logo ring. Clean minimalist Margiela aesthetic.' },
+  { id: 'J27', name: 'Maison Margiela Belt',              price: 647.20, category: 'jewelry', img: 'images/j27.png', soldOut: false, desc: 'Full-grain leather with signature Margiela number-tab buckle.' },
+  { id: 'J29', name: 'Red Metallic Watch',                price: 807.40, category: 'jewelry', img: 'images/j29.png', soldOut: false, desc: 'Metallic red case with precision quartz movement. Bold statement piece.' },
+  { id: 'J30', name: 'Blue Metallic Watch',               price: 854.92, category: 'jewelry', img: 'images/j30.png', soldOut: false, desc: 'Metallic blue case with precision quartz movement. Rare colourway.' },
 ];
 
 const COMING_SOON = ['jeans', 'hoodies', 'shirts', 'shoes'];
@@ -92,12 +92,13 @@ function renderGrid(cat) {
   const SIZES = { 2: 'card-lg', 5: 'card-wide', 10: 'card-lg', 15: 'card-wide' };
 
   grid.innerHTML = filtered.map((p, i) => `
-    <div class="product-card${SIZES[i] ? ' ' + SIZES[i] : ''}" data-id="${p.id}" style="animation-delay:${Math.min(i * 0.05, 0.35)}s">
+    <div class="product-card${SIZES[i] ? ' ' + SIZES[i] : ''}${p.soldOut ? ' sold-out' : ''}" data-id="${p.id}" style="animation-delay:${Math.min(i * 0.05, 0.35)}s">
+      ${p.soldOut ? '<div class="sold-badge">Sold</div>' : ''}
       <div class="card-img-wrap">
         <img class="card-img" src="${p.img}" alt="${p.name}" loading="lazy">
       </div>
       <div class="card-overlay">
-        <span class="card-overlay-text">View</span>
+        <span class="card-overlay-text">${p.soldOut ? 'Sold Out' : 'View'}</span>
       </div>
       <div class="card-info">
         <div class="card-id">${p.id}</div>
@@ -110,6 +111,16 @@ function renderGrid(cat) {
   grid.querySelectorAll('.product-card').forEach(card => {
     card.addEventListener('click', () => openLightbox(card.dataset.id));
   });
+
+  // ── Shimmer: mark wrap as loaded once image loads ─────────────────────────
+  grid.querySelectorAll('.card-img').forEach(img => {
+    const wrap = img.closest('.card-img-wrap');
+    const done = () => wrap.classList.add('loaded');
+    if (img.complete) { done(); } else {
+      img.addEventListener('load',  done, { once: true });
+      img.addEventListener('error', done, { once: true });
+    }
+  });
 }
 
 // ── Lightbox ─────────────────────────────────────────────────────────────────
@@ -118,11 +129,36 @@ function openLightbox(id) {
   if (!p) return;
   lightboxProduct = p;
 
-  document.getElementById('lb-img').src           = p.img;
-  document.getElementById('lb-img').alt           = p.name;
+  const lbImgWrap = document.querySelector('.lb-img-wrap');
+  const lbImg     = document.getElementById('lb-img');
+  const lbOrder   = document.getElementById('lb-order');
+
+  // Reset shimmer
+  lbImgWrap.classList.remove('loaded');
+  lbImg.src = p.img;
+  lbImg.alt = p.name;
+  const imgDone = () => lbImgWrap.classList.add('loaded');
+  if (lbImg.complete) { imgDone(); } else {
+    lbImg.addEventListener('load',  imgDone, { once: true });
+    lbImg.addEventListener('error', imgDone, { once: true });
+  }
+
   document.getElementById('lb-id').textContent    = p.id;
   document.getElementById('lb-name').textContent  = p.name;
+  document.getElementById('lb-desc').textContent  = p.desc || '';
   document.getElementById('lb-price').textContent = fmt(p.price);
+
+  // Sold-out state
+  if (p.soldOut) {
+    lbOrder.textContent = 'Sold Out';
+    lbOrder.classList.add('sold-out');
+    lbOrder.removeAttribute('href');
+  } else {
+    lbOrder.textContent = 'Order on Instagram →';
+    lbOrder.classList.remove('sold-out');
+    lbOrder.href = 'https://instagram.com/cultestevol';
+  }
+
   document.getElementById('lightbox').classList.remove('hidden');
 
   const card = document.getElementById('lb-card');
