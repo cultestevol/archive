@@ -180,15 +180,8 @@ a { color: inherit; text-decoration: none; }
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 260px;
   gap: 2px;
-}
-
-.product-card.card-featured {
-  grid-column: span 2;
-}
-
-.product-card.card-featured .card-img-wrap {
-  aspect-ratio: 2 / 1;
 }
 
 .product-card {
@@ -197,6 +190,8 @@ a { color: inherit; text-decoration: none; }
   cursor: pointer;
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
   transition: border-color 0.2s;
 }
 
@@ -205,9 +200,38 @@ a { color: inherit; text-decoration: none; }
 .product-card:hover .card-img { transform: scale(1.04); }
 
 .card-img-wrap {
-  aspect-ratio: 1 / 1;
+  flex: 1;
   overflow: hidden;
   background: var(--surface-2);
+}
+
+/* ── Bento sizes ─────────────────────────────────────────────────────────── */
+.product-card.card-lg {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.product-card.card-lg .card-img-wrap {
+  position: absolute;
+  inset: 0;
+  flex: none;
+}
+
+.product-card.card-lg .card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  border-top: none;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 100%);
+  padding: 52px 20px 20px;
+}
+
+.product-card.card-lg .card-overlay { z-index: 1; }
+
+.product-card.card-wide {
+  grid-column: span 2;
 }
 
 .card-img {
@@ -448,9 +472,9 @@ a { color: inherit; text-decoration: none; }
   .nav { display: none; }
   .hero { padding: 52px 16px 48px; }
   .main { padding: 36px 16px 80px; }
-  .grid { grid-template-columns: repeat(2, 1fr); gap: 1px; }
-  .product-card.card-featured { grid-column: span 2; }
-  .product-card.card-featured .card-img-wrap { aspect-ratio: 2 / 1; }
+  .grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; gap: 1px; }
+  .product-card.card-lg { grid-column: span 2; grid-row: span 2; }
+  .product-card.card-wide { grid-column: span 2; }
   .lb-card { grid-template-columns: 1fr; max-width: 420px; }
   .lb-img-wrap { max-height: 320px; }
   .lb-info { padding: 24px 20px; }

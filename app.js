@@ -60,8 +60,10 @@ function renderGrid(cat) {
     return;
   }
 
+  const SIZES = { 2: 'card-lg', 5: 'card-wide', 10: 'card-lg', 15: 'card-wide' };
+
   grid.innerHTML = filtered.map((p, i) => `
-    <div class="product-card${i % 5 === 0 ? ' card-featured' : ''}" data-id="${p.id}">
+    <div class="product-card${SIZES[i] ? ' ' + SIZES[i] : ''}" data-id="${p.id}">
       <div class="card-img-wrap">
         <img class="card-img" src="${p.img}" alt="${p.name}" loading="lazy">
       </div>
