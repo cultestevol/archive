@@ -338,16 +338,15 @@ a { color: inherit; text-decoration: none; }
 .chain-x {
   position: relative;
   width: 100%;
-  max-width: 600px;
-  height: 380px;
+  height: 460px;
   margin: 0 auto 32px;
   overflow: hidden;
 }
 
 .chain-arm {
   position: absolute;
-  width: 68px;
-  height: 740px;
+  width: 80px;
+  height: 1800px;
   left: 50%;
   top: 50%;
   overflow: hidden;
