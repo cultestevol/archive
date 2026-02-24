@@ -29,6 +29,55 @@ function fmt(price) {
   return '฿' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
+// ── Chain X + Lock SVG for coming-soon ───────────────────────────────────────
+function chainSVG() {
+  const W = 560, H = 340, CX = W / 2, CY = H / 2;
+
+  function links(x1, y1, x2, y2, gid) {
+    const dx = x2 - x1, dy = y2 - y1;
+    const len = Math.sqrt(dx * dx + dy * dy);
+    const ang = Math.atan2(dy, dx) * 180 / Math.PI;
+    const step = 26, n = Math.ceil(len / step);
+    let s = '';
+    for (let i = 0; i <= n; i++) {
+      const t = i / n;
+      const lx = x1 + dx * t, ly = y1 + dy * t;
+      if (Math.sqrt((lx - CX) ** 2 + (ly - CY) ** 2) < 54) continue;
+      const [rx, ry] = i % 2 === 0 ? [12, 5] : [5, 12];
+      s += `<ellipse cx="${lx.toFixed(1)}" cy="${ly.toFixed(1)}" rx="${rx}" ry="${ry}" transform="rotate(${ang.toFixed(1)} ${lx.toFixed(1)} ${ly.toFixed(1)})" fill="none" stroke="url(#${gid})" stroke-width="2.5"/>`;
+    }
+    return s;
+  }
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" class="coming-chains" aria-hidden="true">
+  <defs>
+    <linearGradient id="cg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#555"/><stop offset="28%" stop-color="#bbb"/>
+      <stop offset="58%" stop-color="#eee"/><stop offset="100%" stop-color="#666"/>
+    </linearGradient>
+    <linearGradient id="cg2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#555"/><stop offset="28%" stop-color="#bbb"/>
+      <stop offset="58%" stop-color="#eee"/><stop offset="100%" stop-color="#666"/>
+    </linearGradient>
+    <radialGradient id="lg" cx="36%" cy="28%" r="65%">
+      <stop offset="0%" stop-color="#e0e0e0"/>
+      <stop offset="45%" stop-color="#999"/>
+      <stop offset="100%" stop-color="#3a3a3a"/>
+    </radialGradient>
+  </defs>
+  ${links(10, 10, W - 10, H - 10, 'cg1')}
+  ${links(W - 10, 10, 10, H - 10, 'cg2')}
+  <circle cx="${CX}" cy="${CY + 10}" r="50" fill="rgba(120,120,120,0.06)"/>
+  <path d="M${CX - 19} ${CY - 2} V${CY - 26} Q${CX - 19} ${CY - 44} ${CX} ${CY - 44} Q${CX + 19} ${CY - 44} ${CX + 19} ${CY - 26} V${CY - 2}"
+    fill="none" stroke="url(#cg1)" stroke-width="7.5" stroke-linecap="round"/>
+  <rect x="${CX - 30}" y="${CY - 4}" width="60" height="46" rx="7" fill="url(#lg)"/>
+  <rect x="${CX - 30}" y="${CY - 4}" width="60" height="46" rx="7" fill="none" stroke="url(#cg1)" stroke-width="1.5"/>
+  <rect x="${CX - 22}" y="${CY + 4}" width="16" height="5" rx="2.5" fill="rgba(255,255,255,0.22)"/>
+  <circle cx="${CX}" cy="${CY + 16}" r="7.5" fill="#111"/>
+  <rect x="${CX - 3}" y="${CY + 21}" width="6" height="12" rx="3" fill="#111"/>
+</svg>`;
+}
+
 // ── Render grid ──────────────────────────────────────────────────────────────
 function renderGrid(cat) {
   activeCategory = cat;
@@ -46,9 +95,10 @@ function renderGrid(cat) {
   if (isComingSoon) {
     countEl.textContent = 'Coming soon';
     grid.innerHTML = `
-      <div class="empty-state">
+      <div class="empty-state coming-state">
+        ${chainSVG()}
         <h3>COMING SOON</h3>
-        <p style="margin-top:8px;font-size:0.82rem">This category is being stocked. Follow <a href="https://instagram.com/cultestevol" target="_blank" style="color:#fff;text-decoration:underline">@cultestevol</a> for updates.</p>
+        <p class="coming-text">Follow <a href="https://instagram.com/cultestevol" target="_blank" style="color:#fff;text-decoration:underline">@cultestevol</a> for updates.</p>
       </div>`;
     return;
   }
