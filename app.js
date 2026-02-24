@@ -31,7 +31,7 @@ function fmt(price) {
 
 // ── Hero content per category ─────────────────────────────────────────────────
 const HERO = {
-  all:     { sub: 'Archive Collection',     title: 'Where you can buy<br>fashion affordably.',  cta: 'DM to Order →'        },
+  all:     { sub: 'CultestEvol Archive',     title: 'Where you can buy<br>fashion affordably.',  cta: 'DM to Order →'        },
   jewelry: { sub: 'Jewelry',                title: 'Chrome Hearts.<br>Silver, steel & beyond.', cta: 'Shop Jewelry →'       },
   jeans:   { sub: 'Denim — Coming Soon',    title: 'The perfect fit<br>is on its way.',          cta: 'Follow for Updates →' },
   hoodies: { sub: 'Hoodies — Coming Soon',  title: 'Stay draped.<br>Coming to the archive.',     cta: 'Follow for Updates →' },
