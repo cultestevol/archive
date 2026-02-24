@@ -229,22 +229,18 @@ if (window.matchMedia('(pointer: fine)').matches) {
   document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
 }
 
-// ── Hero collage strips ───────────────────────────────────────────────────────
-function buildHeroStrips() {
+// ── Hero collage background ───────────────────────────────────────────────────
+function buildHeroCollage() {
   const hero = document.querySelector('.hero');
-  const doubled = [...PRODUCTS, ...PRODUCTS];
-  const imgs = doubled.map(p =>
-    `<img class="hero-strip-img" src="${p.img}" alt="" loading="lazy">`
+  const imgs = PRODUCTS.map(p =>
+    `<img class="hero-collage-img" src="${p.img}" alt="" loading="lazy">`
   ).join('');
-  hero.insertAdjacentHTML('afterbegin',
-    `<div class="hero-strip"><div class="hero-strip-track">${imgs}</div></div>`);
-  hero.insertAdjacentHTML('beforeend',
-    `<div class="hero-strip hero-strip--reverse"><div class="hero-strip-track">${imgs}</div></div>`);
+  hero.insertAdjacentHTML('afterbegin', `<div class="hero-collage">${imgs}</div>`);
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 renderGrid('all');
 setHeroContent('all');
-buildHeroStrips();
+buildHeroCollage();
 const initialBtn = document.querySelector('.nav-btn.active');
 if (initialBtn) moveIndicator(initialBtn);
