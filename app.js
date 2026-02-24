@@ -30,6 +30,23 @@ function fmt(price) {
 }
 
 
+// ── Hero content per category ─────────────────────────────────────────────────
+const HERO = {
+  all:     { sub: 'Archive Collection',      title: 'Where you can buy<br>fashion affordably.',        cta: 'DM to Order →' },
+  jewelry: { sub: 'Jewelry',                 title: 'Chrome Hearts.<br>Silver, steel & beyond.',       cta: 'Shop Jewelry →' },
+  jeans:   { sub: 'Denim — Coming Soon',     title: 'The perfect fit<br>is on its way.',               cta: 'Follow for Updates →' },
+  hoodies: { sub: 'Hoodies — Coming Soon',   title: 'Stay draped.<br>Coming to the archive.',          cta: 'Follow for Updates →' },
+  shirts:  { sub: 'Shirts — Coming Soon',    title: 'Clean cuts.<br>Dropping soon.',                   cta: 'Follow for Updates →' },
+  shoes:   { sub: 'Footwear — Coming Soon',  title: 'Step up.<br>Coming to the archive.',              cta: 'Follow for Updates →' },
+};
+
+function updateHero(cat) {
+  const h = HERO[cat] || HERO.all;
+  document.getElementById('hero-sub').textContent  = h.sub;
+  document.getElementById('hero-title').innerHTML  = h.title;
+  document.getElementById('hero-cta').textContent  = h.cta;
+}
+
 // ── Render grid ──────────────────────────────────────────────────────────────
 function renderGrid(cat) {
   activeCategory = cat;
@@ -110,6 +127,7 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     renderGrid(btn.dataset.cat);
+    updateHero(btn.dataset.cat);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
@@ -121,3 +139,4 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 renderGrid('all');
+updateHero('all');
