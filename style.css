@@ -711,7 +711,8 @@ a { color: inherit; text-decoration: none; }
   .hero-inner { padding: 52px 16px; }
   .main { padding: 36px 16px 80px; }
   .grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; gap: 1px; }
-  .card-img-wrap { aspect-ratio: 1 / 1; flex: none; }
+  .card-img-wrap { aspect-ratio: 1 / 1; flex: none; background: var(--surface); }
+  .card-img { object-fit: contain; }
   .product-card.card-lg,
   .product-card.card-wide { grid-column: span 1; grid-row: span 1; }
 
@@ -730,6 +731,6 @@ a { color: inherit; text-decoration: none; }
   .footer-inner { flex-wrap: wrap; gap: 8px; }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 360px) {
   .grid { grid-template-columns: 1fr; }
 }
