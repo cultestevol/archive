@@ -29,57 +29,6 @@ function fmt(price) {
   return '฿' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-// ── Coming-soon chain X ───────────────────────────────────────────────────────
-const LOCK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 132" class="chain-lock-svg">
-  <defs>
-    <radialGradient id="lb" cx="28%" cy="20%" r="75%">
-      <stop offset="0%"   stop-color="#f2f2f2"/>
-      <stop offset="20%"  stop-color="#d5d5d5"/>
-      <stop offset="55%"  stop-color="#7a7a7a"/>
-      <stop offset="85%"  stop-color="#222"/>
-      <stop offset="100%" stop-color="#0e0e0e"/>
-    </radialGradient>
-    <linearGradient id="sg" x1="0" y1="0" x2="0" y2="132" gradientUnits="userSpaceOnUse">
-      <stop offset="0%"   stop-color="#f0f0f0"/>
-      <stop offset="10%"  stop-color="#ffffff"/>
-      <stop offset="28%"  stop-color="#bcbcbc"/>
-      <stop offset="48%"  stop-color="#252525"/>
-      <stop offset="66%"  stop-color="#585858"/>
-      <stop offset="84%"  stop-color="#d2d2d2"/>
-      <stop offset="100%" stop-color="#e8e8e8"/>
-    </linearGradient>
-    <filter id="ds" x="-40%" y="-40%" width="180%" height="180%">
-      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#000" flood-opacity="1"/>
-    </filter>
-  </defs>
-  <!-- shadow layer -->
-  <g filter="url(#ds)">
-    <path d="M37 63 V38 A23 23 0 0 0 83 38 V63" fill="none" stroke="#000" stroke-width="18" stroke-linecap="round"/>
-    <rect x="16" y="61" width="88" height="65" rx="11" fill="#000"/>
-  </g>
-  <!-- shackle -->
-  <path d="M37 63 V38 A23 23 0 0 0 83 38 V63" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
-  <path d="M37 63 V38 A23 23 0 0 0 83 38 V63" fill="none" stroke="url(#sg)" stroke-width="10" stroke-linecap="round"/>
-  <path d="M39 63 V39 A21 21 0 0 0 81 39 V63" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-linecap="round"/>
-  <!-- body -->
-  <rect x="16" y="61" width="88" height="65" rx="11" fill="url(#lb)"/>
-  <rect x="16" y="61" width="88" height="65" rx="11" fill="none" stroke="#2e2e2e" stroke-width="1.5"/>
-  <!-- body highlight streak -->
-  <rect x="26" y="72" width="28" height="5" rx="2.5" fill="rgba(255,255,255,0.28)"/>
-  <rect x="26" y="73" width="28" height="2" rx="1" fill="rgba(255,255,255,0.10)"/>
-  <!-- keyhole -->
-  <circle cx="60" cy="90" r="11" fill="#080808"/>
-  <circle cx="60" cy="90" r="11" fill="none" stroke="#1c1c1c" stroke-width="1.5"/>
-  <rect x="55" y="98" width="10" height="18" rx="5" fill="#080808"/>
-</svg>`;
-
-function comingSoonHTML() {
-  return `<div class="chain-x">
-    <div class="chain-arm chain-arm-1"><img src="images/chain.jpg" class="chain-img" alt=""></div>
-    <div class="chain-arm chain-arm-2"><img src="images/chain.jpg" class="chain-img" alt=""></div>
-    <div class="chain-lock-wrap">${LOCK_SVG}</div>
-  </div>`;
-}
 
 // ── Render grid ──────────────────────────────────────────────────────────────
 function renderGrid(cat) {
@@ -97,10 +46,9 @@ function renderGrid(cat) {
   if (isComingSoon) {
     countEl.textContent = 'Coming soon';
     grid.innerHTML = `
-      <div class="empty-state coming-state">
-        ${comingSoonHTML()}
+      <div class="empty-state">
         <h3>COMING SOON</h3>
-        <p class="coming-text">Follow <a href="https://instagram.com/cultestevol" target="_blank" style="color:#fff;text-decoration:underline">@cultestevol</a> for updates.</p>
+        <p>Follow <a href="https://instagram.com/cultestevol" target="_blank" style="color:#fff;text-decoration:underline">@cultestevol</a> for updates.</p>
       </div>`;
     return;
   }
