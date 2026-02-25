@@ -22,8 +22,10 @@ const PRODUCTS = [
 
 const COMING_SOON = ['jeans', 'hoodies', 'shirts', 'shoes'];
 
-let activeCategory = 'all';
-let lightboxProduct = null;
+let activeCategory    = 'all';
+let lightboxProduct   = null;
+let currentFiltered   = [];
+let currentLbIndex    = -1;
 
 function fmt(price) {
   return '฿' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -82,6 +84,7 @@ function renderGrid(cat) {
     return;
   }
 
+  currentFiltered = filtered;
   countEl.textContent = `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
 
   if (filtered.length === 0) {
@@ -112,6 +115,18 @@ function renderGrid(cat) {
     card.addEventListener('click', () => openLightbox(card.dataset.id));
   });
 
+  // ── Scroll-triggered reveal ───────────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('card-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  grid.querySelectorAll('.product-card').forEach(card => observer.observe(card));
+
   // ── Shimmer: mark wrap as loaded once image loads ─────────────────────────
   grid.querySelectorAll('.card-img').forEach(img => {
     const wrap = img.closest('.card-img-wrap');
@@ -124,10 +139,25 @@ function renderGrid(cat) {
 }
 
 // ── Lightbox ─────────────────────────────────────────────────────────────────
+function updateNavBtns() {
+  const prev = document.getElementById('lb-prev');
+  const next = document.getElementById('lb-next');
+  if (prev) prev.disabled = currentLbIndex <= 0;
+  if (next) next.disabled = currentLbIndex >= currentFiltered.length - 1;
+}
+
+function navigateLightbox(dir) {
+  const newIndex = currentLbIndex + dir;
+  if (newIndex < 0 || newIndex >= currentFiltered.length) return;
+  openLightbox(currentFiltered[newIndex].id);
+}
+
 function openLightbox(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return;
   lightboxProduct = p;
+  currentLbIndex  = currentFiltered.findIndex(x => x.id === id);
+  updateNavBtns();
 
   const lbImgWrap = document.querySelector('.lb-img-wrap');
   const lbImg     = document.getElementById('lb-img');
@@ -171,6 +201,7 @@ function openLightbox(id) {
 
 function closeLightbox() {
   document.getElementById('lightbox').classList.add('hidden');
+  document.querySelector('.lb-img-wrap').classList.remove('zoomed');
   document.body.style.overflow = '';
   lightboxProduct = null;
 }
@@ -203,7 +234,19 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
 // ── Lightbox events ───────────────────────────────────────────────────────────
 document.getElementById('lb-close').addEventListener('click', closeLightbox);
 document.getElementById('lb-backdrop').addEventListener('click', closeLightbox);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+document.getElementById('lb-prev').addEventListener('click', () => navigateLightbox(-1));
+document.getElementById('lb-next').addEventListener('click', () => navigateLightbox(1));
+
+document.querySelector('.lb-img-wrap').addEventListener('click', function () {
+  this.classList.toggle('zoomed');
+});
+
+document.addEventListener('keydown', e => {
+  if (document.getElementById('lightbox').classList.contains('hidden')) return;
+  if (e.key === 'Escape')      closeLightbox();
+  if (e.key === 'ArrowLeft')   navigateLightbox(-1);
+  if (e.key === 'ArrowRight')  navigateLightbox(1);
+});
 
 // ── Custom cursor ─────────────────────────────────────────────────────────────
 if (window.matchMedia('(pointer: fine)').matches) {
