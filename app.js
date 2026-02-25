@@ -6,7 +6,7 @@ const PRODUCTS = [
   { id: 'J1',  name: 'Chrome Hearts Clip-On Earrings',   price: 246.26, category: 'jewelry', img: 'images/j1.png',  soldOut: false, desc: 'Authentic sterling silver clip-on earrings. Signature Chrome Hearts cross motif.' },
   { id: 'J3',  name: 'Chrome Hearts Wallet Chain',        price: 253.00, category: 'jewelry', img: 'images/j3.png',  soldOut: false, desc: 'Sterling silver wallet chain with Chrome Hearts hardware and lobster clasp.' },
   { id: 'J6',  name: 'Chrome Hearts Ring',                price: 361.90, category: 'jewelry', img: 'images/j6.png',  soldOut: false, desc: 'Sterling silver band with Chrome Hearts engraving. Available in select sizes.' },
-  { id: 'J7',  name: 'Chrome Hearts Chain',               price: 545.50, category: 'jewelry', img: 'images/j7.png',  soldOut: false, desc: 'Heavy sterling silver link necklace. Signature Chrome Hearts design.', imgPos: '50% 15%' },
+  { id: 'J7',  name: 'Chrome Hearts Chain',               price: 545.50, category: 'jewelry', img: 'images/j7.png',  soldOut: false, desc: 'Heavy sterling silver link necklace. Signature Chrome Hearts design.', imgPos: '50% 75%' },
   { id: 'J8',  name: 'Silver Wrist Chain',                price: 286.17, category: 'jewelry', img: 'images/j8.png',  soldOut: false, desc: 'Layered sterling silver wrist chain. Adjustable fit.' },
   { id: 'J12', name: 'Chrome Hearts Wrist Beads',         price: 353.80, category: 'jewelry', img: 'images/j12.png', soldOut: false, desc: 'Beaded bracelet with sterling silver Chrome Hearts accents.' },
   { id: 'J15', name: 'Black Chrome Hearts Glasses',       price: 660.70, category: 'jewelry', img: 'images/j15.png', soldOut: false, desc: 'Black acetate frames with chrome hardware. Full UV protection.' },
