@@ -18,9 +18,11 @@ const PRODUCTS = [
   { id: 'J27', name: 'Maison Margiela Belt',              price: 647.20, category: 'jewelry', img: 'images/j27.png', soldOut: false, desc: 'Full-grain leather with signature Margiela number-tab buckle.', imgPos: '35% 8%' },
   { id: 'J29', name: 'Red Metallic Watch',                price: 807.40, category: 'jewelry', img: 'images/j29.png', soldOut: false, desc: 'Metallic red case with precision quartz movement. Bold statement piece.' },
   { id: 'J30', name: 'Blue Metallic Watch',               price: 854.92, category: 'jewelry', img: 'images/j30.png', soldOut: false, desc: 'Metallic blue case with precision quartz movement. Rare colourway.' },
+  // ── Jeans ────────────────────────────────────────────────────────────────
+  { id: 'J40', name: 'Silver Apple Charm',               price: 100.00, category: 'jeans',   img: 'images/j40.jpg', soldOut: false, desc: 'Polished chrome apple charm. Signature CultestEvol accessory.' },
 ];
 
-const COMING_SOON = ['jeans', 'hoodies', 'shirts', 'shoes'];
+const COMING_SOON = ['hoodies', 'shirts', 'shoes'];
 
 let activeCategory    = 'all';
 let lightboxProduct   = null;
@@ -35,7 +37,7 @@ function fmt(price) {
 const HERO = {
   all:     { sub: 'CultestEvol Archive',     title: 'Where you can buy<br>fashion affordably.',  cta: 'DM to Order →'        },
   jewelry: { sub: 'Jewelry',                title: 'Chrome Hearts.<br>Silver, steel & beyond.', cta: 'Shop Jewelry →'       },
-  jeans:   { sub: 'Denim — Coming Soon',    title: 'The perfect fit<br>is on its way.',          cta: 'Follow for Updates →' },
+  jeans:   { sub: 'Jeans',                  title: 'Denim & accessories<br>from the archive.',   cta: 'Shop Jeans →'         },
   hoodies: { sub: 'Hoodies — Coming Soon',  title: 'Stay draped.<br>Coming to the archive.',     cta: 'Follow for Updates →' },
   shirts:  { sub: 'Shirts — Coming Soon',   title: 'Clean cuts.<br>Dropping soon.',              cta: 'Follow for Updates →' },
   shoes:   { sub: 'Footwear — Coming Soon', title: 'Step up.<br>Coming to the archive.',         cta: 'Follow for Updates →' },
