@@ -19,8 +19,7 @@ const PRODUCTS = [
   { id: 'J29', name: 'Red Metallic Watch',                price: 807.40, category: 'jewelry', img: 'images/j29.png', soldOut: false, desc: 'Metallic red case with precision quartz movement. Bold statement piece.' },
   { id: 'J30', name: 'Blue Metallic Watch',               price: 854.92, category: 'jewelry', img: 'images/j30.png', soldOut: false, desc: 'Metallic blue case with precision quartz movement. Rare colourway.' },
   // ── Jeans ────────────────────────────────────────────────────────────────
-  { id: 'J40', name: 'Silver Apple Charm',               price: 100.00, category: 'jeans',   img: 'images/j40.jpg', soldOut: false, desc: 'Polished chrome apple charm. Signature CultestEvol accessory.' },
-  { id: 'K8',  name: 'Test',                             price: 200.00, category: 'jeans',   img: '',               soldOut: false, desc: 'Archive denim. DM for details and sizing.' },
+  { id: 'Jn2', name: 'Worker Jeans',                     price: 813.16, category: 'jeans',   img: 'images/jn2.jpg', soldOut: false, desc: 'Washed cargo pants with multi-pocket utility design. Unisex fit.' },
 ];
 
 const COMING_SOON = ['hoodies', 'shirts', 'shoes'];
