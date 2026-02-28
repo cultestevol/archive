@@ -20,6 +20,7 @@ const PRODUCTS = [
   { id: 'J30', name: 'Blue Metallic Watch',               price: 854.92, category: 'jewelry', img: 'images/j30.png', soldOut: false, desc: 'Metallic blue case with precision quartz movement. Rare colourway.' },
   // ── Jeans ────────────────────────────────────────────────────────────────
   { id: 'J40', name: 'Silver Apple Charm',               price: 100.00, category: 'jeans',   img: 'images/j40.jpg', soldOut: false, desc: 'Polished chrome apple charm. Signature CultestEvol accessory.' },
+  { id: 'K8',  name: 'Test',                             price: 200.00, category: 'jeans',   img: '',               soldOut: false, desc: 'Archive denim. DM for details and sizing.' },
 ];
 
 const COMING_SOON = ['hoodies', 'shirts', 'shoes'];
@@ -100,7 +101,7 @@ function renderGrid(cat) {
     <div class="product-card${SIZES[i] ? ' ' + SIZES[i] : ''}${p.soldOut ? ' sold-out' : ''}" data-id="${p.id}" style="animation-delay:${Math.min(i * 0.05, 0.35)}s">
       ${p.soldOut ? '<div class="sold-badge">Sold</div>' : ''}
       <div class="card-img-wrap">
-        <img class="card-img" src="${p.img}" alt="${p.name}" loading="lazy"${p.imgPos ? ` style="object-position:${p.imgPos}"` : ''}>
+        ${p.img ? `<img class="card-img" src="${p.img}" alt="${p.name}" loading="lazy"${p.imgPos ? ` style="object-position:${p.imgPos}"` : ''}>` : `<div class="card-img card-img-black"></div>`}
       </div>
       <div class="card-overlay">
         <span class="card-overlay-text">${p.soldOut ? 'Sold Out' : 'View'}</span>
@@ -167,13 +168,22 @@ function openLightbox(id) {
 
   // Reset shimmer
   lbImgWrap.classList.remove('loaded');
-  lbImg.src = p.img;
-  lbImg.alt = p.name;
-  lbImg.style.objectPosition = p.imgPos || '';
-  const imgDone = () => lbImgWrap.classList.add('loaded');
-  if (lbImg.complete) { imgDone(); } else {
-    lbImg.addEventListener('load',  imgDone, { once: true });
-    lbImg.addEventListener('error', imgDone, { once: true });
+  if (p.img) {
+    lbImg.src = p.img;
+    lbImg.alt = p.name;
+    lbImg.style.objectPosition = p.imgPos || '';
+    lbImg.style.display = '';
+    lbImgWrap.style.background = '';
+    const imgDone = () => lbImgWrap.classList.add('loaded');
+    if (lbImg.complete) { imgDone(); } else {
+      lbImg.addEventListener('load',  imgDone, { once: true });
+      lbImg.addEventListener('error', imgDone, { once: true });
+    }
+  } else {
+    lbImg.src = '';
+    lbImg.style.display = 'none';
+    lbImgWrap.style.background = '#000';
+    lbImgWrap.classList.add('loaded');
   }
 
   document.getElementById('lb-id').textContent    = p.id;
