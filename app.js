@@ -19,7 +19,10 @@ const PRODUCTS = [
   { id: 'J29', name: 'Red Metallic Watch',                price: 807.40, category: 'jewelry', img: 'images/j29.png', soldOut: false, desc: 'Metallic red case with precision quartz movement. Bold statement piece.' },
   { id: 'J30', name: 'Blue Metallic Watch',               price: 854.92, category: 'jewelry', img: 'images/j30.png', soldOut: false, desc: 'Metallic blue case with precision quartz movement. Rare colourway.' },
   // ── Jeans ────────────────────────────────────────────────────────────────
-  { id: 'Jn2', name: 'Worker Jeans',                     price: 813.16, category: 'jeans',   img: 'images/jn2.jpg', soldOut: false, desc: 'Washed cargo pants with multi-pocket utility design. Unisex fit.' },
+  { id: 'Jn2', name: 'Worker Jeans',                     price: 813.16,  category: 'jeans',  img: 'images/jn2.jpg', soldOut: false, desc: 'Washed cargo pants with multi-pocket utility design. Unisex fit.' },
+  { id: 'Jn6', name: 'Distressed Jeans',                price: 752.725, category: 'jeans',  img: 'images/jn6.jpg', soldOut: false, desc: 'Heavy distressed denim with patchwork detailing and lace-up accents.' },
+  { id: 'Jn7', name: 'White Double Waisted Jeans',     price: 687.70,  category: 'jeans',  img: 'images/jn7.jpg', soldOut: false, desc: 'Camo wide-leg cargo pants with double waistband and contrast black pockets.' },
+  { id: 'Jn8', name: 'Patchwork Jeans',               price: 893.80,  category: 'jeans',  img: 'images/jn8.jpg', soldOut: false, desc: 'Heavy utility denim with multi-pocket patchwork, zippers, D-rings and strap detailing.' },
 ];
 
 const COMING_SOON = ['hoodies', 'shirts', 'shoes'];
