@@ -2,27 +2,27 @@
 
 const PRODUCTS = [
   // ── Jewelry ──────────────────────────────────────────────────────────────
-  { id: 'J17', name: 'Steel Chain',                      price: 396.10, category: 'jewelry', img: 'images/j17.png', soldOut: false, desc: 'Heavy-gauge stainless steel link chain. Polished finish, adjustable length.' },
-  { id: 'J1',  name: 'Chrome Hearts Clip-On Earrings',   price: 246.26, category: 'jewelry', img: 'images/j1.png',  soldOut: false, desc: 'Authentic sterling silver clip-on earrings. Signature Chrome Hearts cross motif.' },
-  { id: 'J3',  name: 'Chrome Hearts Wallet Chain',        price: 253.00, category: 'jewelry', img: 'images/j3.jpg',  soldOut: false, desc: 'Sterling silver wallet chain with Chrome Hearts hardware and lobster clasp.' },
-  { id: 'J6',  name: 'Chrome Hearts Ring',                price: 361.90, category: 'jewelry', img: 'images/j6.png',  soldOut: false, desc: 'Sterling silver band with Chrome Hearts engraving. Available in select sizes.' },
-  { id: 'J7',  name: 'Chrome Hearts Chain',               price: 545.50, category: 'jewelry', img: 'images/j7.png',  soldOut: false, desc: 'Heavy sterling silver link necklace. Signature Chrome Hearts design.', imgPos: '50% 92%' },
-  { id: 'J8',  name: 'Silver Wrist Chain',                price: 286.17, category: 'jewelry', img: 'images/j8.png',  soldOut: false, desc: 'Layered sterling silver wrist chain. Adjustable fit.' },
-  { id: 'J12', name: 'Chrome Hearts Wrist Beads',         price: 353.80, category: 'jewelry', img: 'images/j12.png', soldOut: false, desc: 'Beaded bracelet with sterling silver Chrome Hearts accents.' },
-  { id: 'J15', name: 'Black Chrome Hearts Glasses',       price: 660.70, category: 'jewelry', img: 'images/j15.png', soldOut: false, desc: 'Black acetate frames with chrome hardware. Full UV protection.' },
-  { id: 'J14', name: 'Half Frame Chrome Hearts Glasses',  price: 640.00, category: 'jewelry', img: 'images/j14.png', soldOut: false, desc: 'Half-frame design with lightweight chrome detailing. Minimal and sharp.' },
-  { id: 'J16', name: 'Layered Chrome Hearts Wallet Chain',price: 316.00, category: 'jewelry', img: 'images/j16.png', soldOut: false, desc: 'Double-layer wallet chain with Chrome Hearts charms throughout.' },
-  { id: 'J19', name: 'Chrome Hearts Pendant',             price: 220.60, category: 'jewelry', img: 'images/j19.png', soldOut: false, desc: 'Sterling silver cross pendant with Chrome Hearts engraving. Chain not included.' },
-  { id: 'J21', name: 'Classic Chrome Hearts Pendant',     price: 247.60, category: 'jewelry', img: 'images/j21.png', soldOut: false, desc: 'Classic logo pendant in sterling silver. Signature Chrome Hearts aesthetic.', imgPos: '50% 75%' },
-  { id: 'J26', name: 'Maison Margiela Ring',              price: 278.20, category: 'jewelry', img: 'images/j26.jpg', soldOut: false, desc: 'Sterling silver logo ring. Clean minimalist Margiela aesthetic.', imgPos: '50% 60%' },
-  { id: 'J27', name: 'Maison Margiela Belt',              price: 647.20, category: 'jewelry', img: 'images/j27.png', soldOut: false, desc: 'Full-grain leather with signature Margiela number-tab buckle.', imgPos: '35% 8%' },
-  { id: 'J29', name: 'Red Metallic Watch',                price: 807.40, category: 'jewelry', img: 'images/j29.png', soldOut: false, desc: 'Metallic red case with precision quartz movement. Bold statement piece.' },
-  { id: 'J30', name: 'Blue Metallic Watch',               price: 854.92, category: 'jewelry', img: 'images/j30.png', soldOut: false, desc: 'Metallic blue case with precision quartz movement. Rare colourway.' },
+  { id: 'J17', name: 'Steel Chain',                      price: 397, category: 'jewelry', img: 'images/j17.png', soldOut: false, desc: 'Heavy-gauge stainless steel link chain. Polished finish, adjustable length.' },
+  { id: 'J1',  name: 'Chrome Hearts Clip-On Earrings',   price: 247, category: 'jewelry', img: 'images/j1.png',  soldOut: false, desc: 'Authentic sterling silver clip-on earrings. Signature Chrome Hearts cross motif.' },
+  { id: 'J3',  name: 'Chrome Hearts Wallet Chain',        price: 253, category: 'jewelry', img: 'images/j3.jpg',  soldOut: false, desc: 'Sterling silver wallet chain with Chrome Hearts hardware and lobster clasp.' },
+  { id: 'J6',  name: 'Chrome Hearts Ring',                price: 362, category: 'jewelry', img: 'images/j6.png',  soldOut: false, desc: 'Sterling silver band with Chrome Hearts engraving. Available in select sizes.' },
+  { id: 'J7',  name: 'Chrome Hearts Chain',               price: 546, category: 'jewelry', img: 'images/j7.png',  soldOut: false, desc: 'Heavy sterling silver link necklace. Signature Chrome Hearts design.', imgPos: '50% 92%' },
+  { id: 'J8',  name: 'Silver Wrist Chain',                price: 287, category: 'jewelry', img: 'images/j8.png',  soldOut: false, desc: 'Layered sterling silver wrist chain. Adjustable fit.' },
+  { id: 'J12', name: 'Chrome Hearts Wrist Beads',         price: 354, category: 'jewelry', img: 'images/j12.png', soldOut: false, desc: 'Beaded bracelet with sterling silver Chrome Hearts accents.' },
+  { id: 'J15', name: 'Black Chrome Hearts Glasses',       price: 661, category: 'jewelry', img: 'images/j15.png', soldOut: false, desc: 'Black acetate frames with chrome hardware. Full UV protection.' },
+  { id: 'J14', name: 'Half Frame Chrome Hearts Glasses',  price: 640, category: 'jewelry', img: 'images/j14.png', soldOut: false, desc: 'Half-frame design with lightweight chrome detailing. Minimal and sharp.' },
+  { id: 'J16', name: 'Layered Chrome Hearts Wallet Chain',price: 316, category: 'jewelry', img: 'images/j16.png', soldOut: false, desc: 'Double-layer wallet chain with Chrome Hearts charms throughout.' },
+  { id: 'J19', name: 'Chrome Hearts Pendant',             price: 221, category: 'jewelry', img: 'images/j19.png', soldOut: false, desc: 'Sterling silver cross pendant with Chrome Hearts engraving. Chain not included.' },
+  { id: 'J21', name: 'Classic Chrome Hearts Pendant',     price: 248, category: 'jewelry', img: 'images/j21.png', soldOut: false, desc: 'Classic logo pendant in sterling silver. Signature Chrome Hearts aesthetic.', imgPos: '50% 75%' },
+  { id: 'J26', name: 'Maison Margiela Ring',              price: 279, category: 'jewelry', img: 'images/j26.jpg', soldOut: false, desc: 'Sterling silver logo ring. Clean minimalist Margiela aesthetic.', imgPos: '50% 60%' },
+  { id: 'J27', name: 'Maison Margiela Belt',              price: 648, category: 'jewelry', img: 'images/j27.png', soldOut: false, desc: 'Full-grain leather with signature Margiela number-tab buckle.', imgPos: '35% 8%' },
+  { id: 'J29', name: 'Red Metallic Watch',                price: 808, category: 'jewelry', img: 'images/j29.png', soldOut: false, desc: 'Metallic red case with precision quartz movement. Bold statement piece.' },
+  { id: 'J30', name: 'Blue Metallic Watch',               price: 855, category: 'jewelry', img: 'images/j30.png', soldOut: false, desc: 'Metallic blue case with precision quartz movement. Rare colourway.' },
   // ── Jeans ────────────────────────────────────────────────────────────────
-  { id: 'Jn2', name: 'Worker Jeans',                     price: 813.16,  category: 'jeans',  img: 'images/jn2.jpg', soldOut: false, desc: 'Washed cargo pants with multi-pocket utility design. Unisex fit.' },
-  { id: 'Jn6', name: 'Distressed Jeans',                price: 752.725, category: 'jeans',  img: 'images/jn6.jpg', soldOut: false, desc: 'Heavy distressed denim with patchwork detailing and lace-up accents.' },
-  { id: 'Jn7', name: 'White Double Waisted Jeans',     price: 687.70,  category: 'jeans',  img: 'images/jn7.jpg', soldOut: false, desc: 'Camo wide-leg cargo pants with double waistband and contrast black pockets.' },
-  { id: 'Jn8', name: 'Patchwork Jeans',               price: 893.80,  category: 'jeans',  img: 'images/jn8.jpg', soldOut: false, desc: 'Heavy utility denim with multi-pocket patchwork, zippers, D-rings and strap detailing.' },
+  { id: 'Jn2', name: 'Worker Jeans',                     price: 814, category: 'jeans',  img: 'images/jn2.jpg', soldOut: false, desc: 'Washed cargo pants with multi-pocket utility design. Unisex fit.' },
+  { id: 'Jn6', name: 'Distressed Jeans',                price: 753, category: 'jeans',  img: 'images/jn6.jpg', soldOut: false, desc: 'Heavy distressed denim with patchwork detailing and lace-up accents.' },
+  { id: 'Jn7', name: 'White Double Waisted Jeans',     price: 688, category: 'jeans',  img: 'images/jn7.jpg', soldOut: false, desc: 'Camo wide-leg cargo pants with double waistband and contrast black pockets.' },
+  { id: 'Jn8', name: 'Patchwork Jeans',               price: 894, category: 'jeans',  img: 'images/jn8.jpg', soldOut: false, desc: 'Heavy utility denim with multi-pocket patchwork, zippers, D-rings and strap detailing.' },
 ];
 
 const COMING_SOON = ['hoodies', 'shirts', 'shoes'];
@@ -33,7 +33,7 @@ let currentFiltered   = [];
 let currentLbIndex    = -1;
 
 function fmt(price) {
-  return '฿' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return '฿' + price.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
 }
 
 // ── Hero content per category ─────────────────────────────────────────────────
