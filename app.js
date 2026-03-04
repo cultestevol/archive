@@ -18,6 +18,9 @@ const PRODUCTS = [
   { id: 'J27', name: 'Number Belt',              price: 648, category: 'jewelry', img: 'images/j27.png', soldOut: false, desc: 'Full-grain leather with signature Margiela number-tab buckle.', imgPos: '35% 8%' },
   { id: 'J29', name: 'Red Metallic Watch',                price: 808, category: 'jewelry', img: 'images/j29.png', soldOut: false, desc: 'Metallic red case with precision quartz movement. Bold statement piece.' },
   { id: 'J30', name: 'Blue Metallic Watch',               price: 855, category: 'jewelry', img: 'images/j30.png', soldOut: false, desc: 'Metallic blue case with precision quartz movement. Rare colourway.' },
+  // ── Headwear ─────────────────────────────────────────────────────────────
+  { id: 'Hw1', name: 'Graffiti Beanie', price: 244, category: 'headwear', img: 'images/hw1-white.jpg', soldOut: false, desc: 'Distressed slouch beanie with all-over graffiti print. Raw edge finish. Available in 2 colorways.', colorways: [{ label: 'White', img: 'images/hw1-white.jpg' }, { label: 'Grey', img: 'images/hw1-grey.jpg' }] },
+  { id: 'Hw2', name: 'Camo Durag', price: 391, category: 'headwear', img: 'images/hw2.jpg', soldOut: false, desc: 'Distressed camo durag with extended long tails. Raw edge finish.' },
   // ── Jeans ────────────────────────────────────────────────────────────────
   { id: 'Jn2', name: 'Worker Jeans',                     price: 814, category: 'jeans',  img: 'images/jn2.jpg', soldOut: false, desc: 'Washed cargo pants with multi-pocket utility design. Unisex fit.' },
   { id: 'Jn3', name: 'Elevated Jeans (3 Color Ways)',    price: 816, category: 'jeans',  img: 'images/jn3-black.jpg', soldOut: false, desc: 'Wide-leg seam detail jeans with contrast stitching. Available in 3 colorways.', colorways: [{ label: 'Black', img: 'images/jn3-black.jpg' }, { label: 'Vintage Green', img: 'images/jn3-green.jpg' }, { label: 'Blue', img: 'images/jn3-blue.jpg' }] },
@@ -42,6 +45,7 @@ const HERO = {
   all:     { sub: 'CultestEvol Archive',     title: 'Where you can buy<br>fashion affordably.',  cta: 'DM to Order →'        },
   jewelry: { sub: 'Jewelry',                title: 'Silver, steel & beyond.', cta: 'Shop Jewelry →'       },
   jeans:   { sub: 'Jeans',                  title: 'Denim & accessories<br>from the archive.',   cta: 'Shop Jeans →'         },
+  headwear: { sub: 'Headwear',              title: 'Caps, durags & more<br>from the archive.', cta: 'Shop Headwear →'     },
   hoodies: { sub: 'Hoodies — Coming Soon',  title: 'Stay draped.<br>Coming to the archive.',     cta: 'Follow for Updates →' },
   shirts:  { sub: 'Shirts — Coming Soon',   title: 'Clean cuts.<br>Dropping soon.',              cta: 'Follow for Updates →' },
   shoes:   { sub: 'Footwear — Coming Soon', title: 'Step up.<br>Coming to the archive.',         cta: 'Follow for Updates →' },
@@ -77,7 +81,7 @@ function renderGrid(cat) {
   const filtered     = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === cat);
   const isComingSoon = COMING_SOON.includes(cat);
 
-  const labels = { all: 'All Products', jewelry: 'Jewelry', jeans: 'Jeans', hoodies: 'Hoodies', shirts: 'Shirts', shoes: 'Shoes' };
+  const labels = { all: 'All Products', jewelry: 'Jewelry', headwear: 'Headwear', jeans: 'Jeans', hoodies: 'Hoodies', shirts: 'Shirts', shoes: 'Shoes' };
   title.textContent = labels[cat] || 'All Products';
 
   if (isComingSoon) {
