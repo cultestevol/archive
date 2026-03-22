@@ -20,6 +20,9 @@ const PRODUCTS = [
   { id: 'J30', name: 'Blue Metallic Watch',               price: 855, category: 'jewelry', img: 'images/j30.png', soldOut: false, desc: 'Metallic blue case with precision quartz movement. Rare colourway.' },
   // ── Headwear ─────────────────────────────────────────────────────────────
   { id: 'Hw1', name: 'Graffiti Beanie', price: 244, category: 'headwear', img: 'images/hw1-white.jpg', soldOut: false, desc: 'Distressed slouch beanie with all-over graffiti print. Raw edge finish. Available in 2 colorways.', colorways: [{ label: 'White', img: 'images/hw1-white.jpg' }, { label: 'Grey', img: 'images/hw1-grey.jpg' }] },
+  { id: 'Hw7', name: 'Inverted Cross Beanie', price: 297, category: 'headwear', img: 'images/hw7.jpg', soldOut: false, desc: 'Washed knit beanie with distressed inverted cross print. Raw and archive-ready.' },
+  { id: 'Hw4', name: 'Star Patch Slouch Beanie (5 Colors)', price: 297, category: 'headwear', img: 'images/hw4-grey.jpg', soldOut: false, desc: 'Oversized cable knit slouch beanie with star patch detail. Available in 5 colorways.', colorways: [{ label: 'Grey', img: 'images/hw4-grey.jpg' }, { label: 'Black', img: 'images/hw4-black.jpg' }, { label: 'Olive', img: 'images/hw4-olive.jpg' }, { label: 'Navy', img: 'images/hw4-navy.jpg' }, { label: 'Burgundy', img: 'images/hw4-burgundy.jpg' }] },
+  { id: 'Hw3', name: 'Washed Script Beanie (3 Colors)', price: 299, category: 'headwear', img: 'images/hw3.jpg', soldOut: false, desc: 'Chunky knit beanie with oversized washed script lettering. Minimal and archive-ready.', colorways: [{ label: 'Grey', img: 'images/hw3.jpg' }, { label: 'Black', img: 'images/hw3-black.jpg' }, { label: 'Cream/Blue', img: 'images/hw3-cream.jpg' }] },
   { id: 'Hw2', name: 'Camo Durag', price: 391, category: 'headwear', img: 'images/hw2.jpg', soldOut: false, desc: 'Distressed camo durag with extended long tails. Raw edge finish.' },
   // ── Jeans ────────────────────────────────────────────────────────────────
   { id: 'Jn2', name: 'Worker Jeans',                     price: 814, category: 'jeans',  img: 'images/jn2.jpg', soldOut: false, desc: 'Washed cargo pants with multi-pocket utility design. Unisex fit.' },
@@ -27,6 +30,20 @@ const PRODUCTS = [
   { id: 'Jn6', name: 'Distressed Jeans',                price: 753, category: 'jeans',  img: 'images/jn6.jpg', soldOut: false, desc: 'Heavy distressed denim with patchwork detailing and lace-up accents.' },
   { id: 'Jn7', name: 'White Double Waisted Jeans',     price: 688, category: 'jeans',  img: 'images/jn7.jpg', soldOut: false, desc: 'Camo wide-leg cargo pants with double waistband and contrast black pockets.' },
   { id: 'Jn8', name: 'Patchwork Jeans',               price: 894, category: 'jeans',  img: 'images/jn8.jpg', soldOut: false, desc: 'Heavy utility denim with multi-pocket patchwork, zippers, D-rings and strap detailing.' },
+  // ── Backpacks ───────────────────────────────────────────────────────────
+  { id: 'Bp2', name: 'Patched Archive Backpack', price: 547, category: 'backpacks', img: 'images/bp2.jpg', soldOut: false, desc: 'Washed canvas backpack with all-over embroidered logo patches. Heavy archive energy.' },
+  { id: 'Bp3', name: 'Marble Cross Backpack', price: 487, category: 'backpacks', img: 'images/bp3.jpg', soldOut: false, desc: 'Marble-washed puffer backpack with 3D rubber cross appliques. Statement carry.' },
+  { id: 'Bp1', name: 'Faux Fur Monster Backpack', price: 484, category: 'backpacks', img: 'images/bp1.jpg', soldOut: false, desc: 'Oversized black faux fur backpack with horror graphic print. Statement archive piece.' },
+  // ── Long Sleeves ─────────────────────────────────────────────────────────
+  { id: 'Ls1', name: 'ERD Faded Long Sleeve',          price: 586, category: 'longsleeves', img: 'images/ls1.jpg', soldOut: false, desc: 'Washed black long sleeve with distressed ERD text print and chest pocket. Worn-in archive feel.' },
+  { id: 'Ls2', name: 'Cross Washed Long Sleeve',       price: 620, category: 'longsleeves', img: 'images/ls2.jpg', soldOut: false, desc: 'Oversized washed long sleeve with cross graphic and script detailing.' },
+  { id: 'Ls3', name: 'Shredded Knit Long Sleeve',      price: 449, category: 'longsleeves', img: 'images/ls3.jpg', soldOut: false, desc: 'Heavily distressed all-over destroyed knit long sleeve. Raw and deconstructed.' },
+  { id: 'Ls5', name: 'French Script Collage Long Sleeve', price: 615, category: 'longsleeves', img: 'images/ls5.jpg', soldOut: true,  desc: 'Oversized long sleeve with French text and vintage collage graphic print across chest and sleeves.' },
+  // ── Tank Tops ────────────────────────────────────────────────────────────
+  { id: 'Tt1', name: 'Washed Cross Tank', price: 336, category: 'tanktops', img: 'images/tt1-white.jpg', soldOut: false, desc: 'Oversized muscle tank with washed cross graphic. Available in 2 colorways.', colorways: [{ label: 'White', img: 'images/tt1-white.jpg' }, { label: 'Black', img: 'images/tt1-black.jpg' }] },
+  // ── Sweatshirts ──────────────────────────────────────────────────────────
+  { id: 'Ss1', name: 'Abstract Drip Knit Sweater (6 Colors)', price: 699, category: 'sweatshirts', img: 'images/ss1-grey.jpg', soldOut: false, desc: 'Oversized knit sweater with all-over abstract drip pattern. Available in 6 colorways.', colorways: [{ label: 'Grey', img: 'images/ss1-grey.jpg' }, { label: 'Brown', img: 'images/ss1-brown.jpg' }, { label: 'White', img: 'images/ss1-white.jpg' }, { label: 'Black', img: 'images/ss1-black.jpg' }, { label: 'Blue/White', img: 'images/ss1-bluewhite.jpg' }, { label: 'Navy/White', img: 'images/ss1-navywhite.jpg' }] },
+  { id: 'Ss2', name: 'All-Over Eye Knit Sweater (2 Colors)',  price: 699, category: 'sweatshirts', img: 'images/ss2-black.jpg', soldOut: false, desc: 'Oversized knit sweater with all-over horror eye graphic. Available in 2 colorways.', colorways: [{ label: 'Black', img: 'images/ss2-black.jpg' }, { label: 'Olive', img: 'images/ss2-olive.jpg' }] },
 ];
 
 const COMING_SOON = ['hoodies', 'shirts', 'shoes'];
@@ -46,6 +63,10 @@ const HERO = {
   jewelry: { sub: 'Jewelry',                title: 'Silver, steel & beyond.', cta: 'Shop Jewelry →'       },
   jeans:   { sub: 'Jeans',                  title: 'Denim & accessories<br>from the archive.',   cta: 'Shop Jeans →'         },
   headwear: { sub: 'Headwear',              title: 'Caps, durags & more<br>from the archive.', cta: 'Shop Headwear →'     },
+  backpacks: { sub: 'Backpacks',             title: 'Carry the archive.<br>Bags from the vault.', cta: 'Shop Backpacks →' },
+  longsleeves: { sub: 'Long Sleeves',   title: 'Layered & archive.<br>Long sleeve cuts.',     cta: 'Shop Long Sleeves →' },
+  tanktops:    { sub: 'Tank Tops',      title: 'Clean & minimal.<br>Tank tops from the vault.', cta: 'Shop Tank Tops →'    },
+  sweatshirts: { sub: 'Sweatshirts',    title: 'Heavy & oversized.<br>Sweatshirts from the archive.', cta: 'Shop Sweatshirts →' },
   hoodies: { sub: 'Hoodies — Coming Soon',  title: 'Stay draped.<br>Coming to the archive.',     cta: 'Follow for Updates →' },
   shirts:  { sub: 'Shirts — Coming Soon',   title: 'Clean cuts.<br>Dropping soon.',              cta: 'Follow for Updates →' },
   shoes:   { sub: 'Footwear — Coming Soon', title: 'Step up.<br>Coming to the archive.',         cta: 'Follow for Updates →' },
@@ -81,7 +102,7 @@ function renderGrid(cat) {
   const filtered     = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === cat);
   const isComingSoon = COMING_SOON.includes(cat);
 
-  const labels = { all: 'All Products', jewelry: 'Jewelry', headwear: 'Headwear', jeans: 'Jeans', hoodies: 'Hoodies', shirts: 'Shirts', shoes: 'Shoes' };
+  const labels = { all: 'All Products', jewelry: 'Jewelry', headwear: 'Headwear', jeans: 'Jeans', backpacks: 'Backpacks', longsleeves: 'Long Sleeves', tanktops: 'Tank Tops', sweatshirts: 'Sweatshirts', hoodies: 'Hoodies', shirts: 'Shirts', shoes: 'Shoes' };
   title.textContent = labels[cat] || 'All Products';
 
   if (isComingSoon) {
